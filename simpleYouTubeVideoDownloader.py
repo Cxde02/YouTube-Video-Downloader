@@ -62,13 +62,20 @@ folder_path = 'C:/Users/user/Desktop/videosDownloadedFromPython' #Download direc
 link = '' #YT Video link
 
 while True:
-    print('Type 1 for 480p video')
-    print('Type 2 for 720p video')
-    print('Type 3 for 1080p video')
-    print('Type 4 to exit')
-    choice = int(input('Enter your choice: '))
+    if not link: #Displayed if link is not hardcoded (User forgets to enter link before)
+        link = input("Enter the YouTube video link: ")
+
+    print('-------------------------')
+    print('| Type 1 for 480p video  |')
+    print('| Type 2 for 720p video  |')
+    print('| Type 3 for 1080p video |')
+    print('| Type 4 to exit         |')
+    print('-------------------------')
+
+    choice = int(input('\nEnter your choice: '))
+
     if choice < 1 or choice > 4:
-        print('Invalid Choice! Enter again (1|2|3) ')
+        print('Invalid Choice! Enter again (1|2|3|4) ')
     elif choice == 1:
         if video_480p(link, folder_path):
             break
